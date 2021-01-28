@@ -8,13 +8,16 @@ import EducationList from '../../components/EducationList/EducationList'
 
 const Aside = (props: Contatos) => {
 
+    const [dados, setDadoss] = React.useState<Boolean>(false)
+
+
     return (
         <aside>
             <div className="sidebar">
                 <h3>Contatos</h3>
+                <button onClick={ () => setDadoss(!dados)}>Mostrar Contatos</button>
                 
-
-                {props.dados.contatos.map((item: DadosContatos) => (
+                {dados && props.dados.contatos.map((item: DadosContatos) => (
                     <ContactList key={item.id} contactList={item} />
                 ))}
             </div>
